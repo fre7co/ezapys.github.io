@@ -91,6 +91,7 @@
     <input type="text" placeholder="Ваше ім'я" id="user_name">
     <input type="text" placeholder="Ваш емейл" id="user_email">
     <input type="text" placeholder="Ваш номер телефону" id="user_phone">
+    <input type="date" id="user_date" name="Дата">
     <div id="error"></div>
     <button id="order">Забронювати</button>
   </form>
@@ -112,6 +113,7 @@
       let name = document.getElementById("user_name").value;
       let email = document.getElementById("user_email").value;
       let phone = document.getElementById("user_phone").value;
+      let date = document.getElementById("user_date").value;
       if(name.length < 5) {
         document.getElementById("error").innerText = 'Помилка в імені'
         return;
@@ -128,7 +130,8 @@
       let data = {
         name: name,
         email: email,
-        phone: phone
+        phone: phone,
+        date: date
       }
       tg.sendData(JSON.stringify(data));
       
